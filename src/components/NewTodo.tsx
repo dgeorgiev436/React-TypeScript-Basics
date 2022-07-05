@@ -1,4 +1,5 @@
 import React, {useRef} from "react"
+import "./NewTodo.css"
 
 // Defines the expected props
 type NewTodosProps = {
@@ -10,7 +11,7 @@ const NewTodo: React.FC<NewTodosProps> = (props) => {
 // 	Use ref is assigned to an HTMLInputElement and its initial value is null
 	const todoTextRef = useRef<HTMLInputElement>(null);
 	
-	const onSubmithandler = (event) => {
+	const onSubmithandler = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const enteredText = todoTextRef.current!.value;
 		console.log(enteredText)
@@ -20,7 +21,7 @@ const NewTodo: React.FC<NewTodosProps> = (props) => {
 	
 	return(
 		<form onSubmit={onSubmithandler}>
-			<div>
+			<div className="form-control">
 				<label htmlFor="todo">Enter Todo</label>
 				<input ref={todoTextRef} type="text" id="todo"></input>
 			</div>
