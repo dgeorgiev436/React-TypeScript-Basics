@@ -1,7 +1,11 @@
 import React, {useRef} from "react"
 
+type NewTodosProps = {
+	
+	getUserInput: (input: string) => void;
+}
 
-const NewTodo: React.FC = () => {
+const NewTodo: React.FC<NewTodosProps> = (props) => {
 	
 // 	Use ref is assigned to an HTMLInputElement and its initial value is null
 	const todoTextRef = useRef<HTMLInputElement>(null);
@@ -11,6 +15,7 @@ const NewTodo: React.FC = () => {
 		const enteredText = todoTextRef.current!.value;
 		console.log(enteredText)
 		
+		props.getUserInput(enteredText);
 	}
 	
 	return(
