@@ -1,7 +1,7 @@
 import React, {useRef} from "react"
 
+// Defines the expected props
 type NewTodosProps = {
-	
 	getUserInput: (input: string) => void;
 }
 
@@ -10,8 +10,8 @@ const NewTodo: React.FC<NewTodosProps> = (props) => {
 // 	Use ref is assigned to an HTMLInputElement and its initial value is null
 	const todoTextRef = useRef<HTMLInputElement>(null);
 	
-	const onSubmithandler = (e) => {
-		e.preventDefault();
+	const onSubmithandler = (event) => {
+		event.preventDefault();
 		const enteredText = todoTextRef.current!.value;
 		console.log(enteredText)
 		

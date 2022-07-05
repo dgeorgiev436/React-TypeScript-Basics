@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import TodoList from "./components/TodoList"
 import NewTodo from "./components/NewTodo"
 
+// Interface defining the structure of a todo object
+import {Todo} from "./todo.model";
+
 const App: React.FC = () => {
 	
-	const [todos, setTodos] = useState([{id: "t1", text: "Finish the course"}]);
+// 	Defining the struccture of the array
+	const [todos, setTodos] = useState<{Todo}>([]);
 	
 	const getUserInput = (input: string) => {
 		const id = Math.random().toString();
